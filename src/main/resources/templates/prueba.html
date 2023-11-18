@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: head}"></head>
+<body>
+	<header th:replace="~{layout/layout :: header}"></header>
+	<div class="container">
+		<div class="row">
+		<div class="col-6">
+			<img class="img-thumbnail img-fluid" src="https://img.amiami.com/images/product/review/183/FIGURE-041414_01.jpg" th:alt="#{figure.name}">
+		</div>
+		<div class="col-6">
+			<dl class="row">
+				<dt class="col-3">Referencia</dt>
+				<dd class="col-9>">
+					<span th:text="${figure.id}"></span>
+				</dd>
+				<dt class="col-3">Nombre</dt>
+				<dd class="col-9>">
+					<span th:text="${figure.name}"></span>
+				</dd>
+				<dt class="col-3">Personajes</dt>
+				<div th:each="character: ${figure.characterList}">
+					<dd class="col-12">
+						<span th:text="${character.name}"></span>
+					</dd>
+				<dt class="col-3">Series</dt>
+				<div th:each="franchiseCharacter: ${character.characterFranchise}">
+					<dd class="col-12">
+						<span th:text="${franchiseCharacter.franchise.name}"></span>
+					</dd>
+				</div>
+				<dt class="col-3">Productor</dt>
+				<dd class="col-9>">
+					<span th:text="${figure.company.name}"></span>
+				</dd>
+				<dt class="col-3">Lanzamientos</dt>
+				<div th:each="release: ${figure.releases}">
+					<dd class="col-12">
+						<span th:text="${#dates.format(release.releaseDate, 'dd-MM-yyyy')}"></span>
+					</dd>
+					<dd class="col-12">
+						<span th:text="${release.price + ' JPY (USD)'}"></span>
+					</dd>
+				</div>
+				<dt class="col-3">Dimensiones</dt>
+				<dd class="col-9>">
+					<span th:text="${figure.height + ' mm'}"></span>
+				</dd>
+				<div th:if="${figure.scale != null}">
+					<dt class="col-3">Escala</dt>
+					<dd class="col-9>">
+						<span th:text="${figure.scale}"></span>
+					</dd>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row pt-3">
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					Data 
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					Score Distribution 
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row pt-3">
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					Data 
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					Score Distribution 
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row pt-3">
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					Data 
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					Score Distribution 
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row pt-3">
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					Data 
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					Score Distribution 
+				</div>
+			</div>
+		</div>
+	</div>	<div class="row pt-3">
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					Data 
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					Score Distribution 
+				</div>
+			</div>
+		</div>
+	</div>	<div class="row pt-3">
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					Data 
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					Score Distribution 
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<header th:replace="~{layout/layout :: footer}"></header>
+</body>
+</html>

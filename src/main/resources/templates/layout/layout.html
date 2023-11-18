@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Figure Collection</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+</head>
+<body>
+	<header th:fragment="header">
+	<nav class="navbar navbar-header navbar-expand-sm navbar-dark fixed-top mb-4" style="background-color: #2b2d42;">
+		  <div class="container">
+			<a class="navbar-brand" href="#">Icono</a>
+			<button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="collapsibleNavId">
+				<ul class="navbar-nav me-auto ms-auto mt-2 mt-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Figures List</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Goods List</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+						<div class="dropdown-menu" aria-labelledby="dropdownId">
+							<a class="dropdown-item" href="#">Action 1</a>
+							<a class="dropdown-item" href="#">Action 2</a>
+						</div>
+					</li>
+				</ul>
+				<div class="d-flex my-2 my-lg-0">
+					<img src="https://static.myfigurecollection.net/upload/items/0/464669-5e4cd.jpg"class="max-hw-avatar rounded-circle">
+				</div>
+			</div>
+	  </div>
+	</nav>
+	<div class="mt-container"></div>
+	</header>
+
+	<footer th:fragment="footer" class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+		<div class="container">
+			<div class="col-md-4 d-flex align-items-center">
+				<span class="mb-3 mb-md-0 text-muted">© 2022 MyFigureCollection</span>
+			</div>
+		
+			<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+				<li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+				<li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+				<li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+			</ul>
+			<script th:src="@{/js/popper.min.js}"></script>
+			<script th:src="@{/js/bootstrap.min.js}"></script>
+			<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+			<script th:src="@{/js/main.js}"></script>
+		</div>
+	</footer>
+</body>
+</html>
