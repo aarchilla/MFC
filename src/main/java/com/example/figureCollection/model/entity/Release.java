@@ -2,7 +2,6 @@ package com.example.figureCollection.model.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

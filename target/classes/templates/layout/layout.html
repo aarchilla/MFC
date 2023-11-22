@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>My Figure Collection</title>
@@ -35,7 +35,17 @@
 					</li>
 				</ul>
 				<div class="d-flex my-2 my-lg-0">
-					<img src="https://static.myfigurecollection.net/upload/items/0/464669-5e4cd.jpg"class="max-hw-avatar rounded-circle">
+					<div class="nav-item dropdown">
+						<a class="nav-link" href="#" data-bs-toggle="dropdown">
+							<img src="https://static.myfigurecollection.net/upload/items/0/464669-5e4cd.jpg"class="max-hw-avatar rounded-circle">
+						</a>
+						<ul class="dropdown-menu">
+							<form id="logoutForm" th:action="@{/logout}" method="post">
+								<button class="dropdown-item" onclick="document.getElementById('logoutForm').submit();" type="submit">Logout</button>
+							</form>
+							<a class="dropdown-item" href="#">Action 2</a>
+						</ul>
+					</div>
 				</div>
 			</div>
 	  </div>

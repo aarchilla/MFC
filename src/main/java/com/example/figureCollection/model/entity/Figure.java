@@ -56,6 +56,18 @@ public class Figure implements Serializable{
             	@JoinColumn(name="character_id", referencedColumnName="id"))
 	List<Character> characterList;
 
+	@OneToMany(mappedBy = "figure")
+	private List<FigureUserOwned> listFiguresOwned;
+
+	@ManyToMany
+	@JoinTable(
+			name="figure_user_like",
+			joinColumns=
+            	@JoinColumn(name="figure_id", referencedColumnName="id"),
+            inverseJoinColumns=
+            	@JoinColumn(name="user_id", referencedColumnName="id"))
+	List<User> listFigureLiked;
+
 	public Long getId() {
 		return id;
 	}
@@ -119,5 +131,23 @@ public class Figure implements Serializable{
 	public void setScale(String scale) {
 		this.scale = scale;
 	}
+
+	public List<FigureUserOwned> getListFiguresOwned() {
+		return listFiguresOwned;
+	}
+
+	public void setListFiguresOwned(List<FigureUserOwned> listFiguresOwned) {
+		this.listFiguresOwned = listFiguresOwned;
+	}
+
+	public List<User> getListFigureLiked() {
+		return listFigureLiked;
+	}
+
+	public void setListFigureLiked(List<User> listFigureLiked) {
+		this.listFigureLiked = listFigureLiked;
+	}
+
+	
 	
 }
