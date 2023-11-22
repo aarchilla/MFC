@@ -24,6 +24,16 @@ public class FigureServiceImpl implements IFigureService {
 		return figureDao.findById(id).orElseThrow();
 	}
 
+	@Override
+	public List<Figure> findAllOrderByCreateAtDesc() {
+		return figureDao.findAllByOrderByCreateAtDesc();
+	}
+
+	@Override
+	public List<Figure> findAllOrderByRelease() {
+		return figureDao.findAllByOrderByReleaseDesc();
+	}
+
 	
 	
 }

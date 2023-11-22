@@ -1,10 +1,13 @@
 package com.example.figureCollection.model.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +19,8 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
@@ -67,6 +72,12 @@ public class Figure implements Serializable{
             inverseJoinColumns=
             	@JoinColumn(name="user_id", referencedColumnName="id"))
 	List<User> listFigureLiked;
+
+	@NotNull
+	@Column(name = "create_at")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date createAt;
 
 	public Long getId() {
 		return id;
@@ -147,7 +158,5 @@ public class Figure implements Serializable{
 	public void setListFigureLiked(List<User> listFigureLiked) {
 		this.listFigureLiked = listFigureLiked;
 	}
-
-	
 	
 }

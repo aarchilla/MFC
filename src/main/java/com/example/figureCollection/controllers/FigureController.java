@@ -18,10 +18,17 @@ public class FigureController {
 	private IFigureService figureService;
 	
 	@GetMapping(path="/figures/{id}")
-	public String allFigures(@PathVariable Long id, Model model) {
+	public String figure(@PathVariable Long id, Model model) {
 		Figure figure = figureService.findById(id);
 		model.addAttribute("figure", figure);
-		return "prueba";
+		return "figures/figure";
 	}
 
+
+	@GetMapping(path="/figures/")
+	public String listFigures(@PathVariable Long id, Model model) {
+		List<Figure> figures = figureService.findAllOrderByCreateAtDesc();
+		model.addAttribute("figure", figures);
+		return "figure/list";
+	}
 }

@@ -9,4 +9,8 @@ public interface IFigureService {
 	public List<Figure> findAll();
 
 	public Figure findById(Long id);
+
+	public List<Figure> findAllOrderByCreateAtDesc();
+
+	public List<Figure> findAllOrderByRelease();
 }

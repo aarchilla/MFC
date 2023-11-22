@@ -11,8 +11,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import com.example.figureCollection.services.MyUserDetailsService;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
