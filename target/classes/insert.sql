@@ -37,3 +37,18 @@ INSERT INTO figure_user_like (figure_id, user_id ) VALUES(1, 5);
 INSERT INTO figure_user_like (figure_id, user_id ) VALUES(1, 6);
 INSERT INTO figure_user_like (figure_id, user_id ) VALUES(1, 7);
 INSERT INTO figure_user_like (figure_id, user_id ) VALUES(1, 8);
+
+
+INSERT INTO characters (name) VALUES('Musashi Miyamoto');
+INSERT INTO characters (name) VALUES('Altria Pendragon');
+INSERT INTO character_franchise (character_id, franchise_id, rol) VALUES(2,1,'Secondary');
+INSERT INTO character_franchise (character_id, franchise_id, rol) VALUES(3,1,'Main');
+
+INSERT INTO figures (name, company_id) VALUES('Fate/Grand Order - Miyamoto Musashi - 1/7 - Casual Ver. (Alter)',1);
+INSERT INTO releases (price, release_date, figure_id) VALUES(100.0,NOW(),2);
+INSERT INTO figure_character (character_id, figure_id) VALUES(2,2);
+
+
+INSERT INTO figures (name, company_id) VALUES('Fate/Grand Order - Altria Pendragon - 1/7 - Saber, (Alter), Dress ver. (Alter)',1);
+INSERT INTO releases (price, release_date, figure_id) VALUES(90.0,NOW(),3);
+INSERT INTO figure_character (character_id, figure_id) VALUES(3,3);

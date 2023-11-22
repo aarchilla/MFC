@@ -24,11 +24,10 @@ public class FigureController {
 		return "figures/figure";
 	}
 
-
-	@GetMapping(path="/figures/")
-	public String listFigures(@PathVariable Long id, Model model) {
-		List<Figure> figures = figureService.findAllOrderByCreateAtDesc();
+	@GetMapping(path="/figures")
+	public String listFigures(Model model) {
+		List<Figure> figures = figureService.findAllOrderByRelease();
 		model.addAttribute("figure", figures);
-		return "figure/list";
+		return "figures/list";
 	}
 }

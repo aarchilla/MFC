@@ -11,6 +11,6 @@ public interface IFigureDao extends JpaRepository<Figure, Long>{
 
 	List<Figure> findAllByOrderByCreateAtDesc();
 
-    @Query("select figure f from Figure f inner join Release r order by r.releaseDate DESC")
+    @Query("select r.figure from Release r JOIN r.figure order by r.releaseDate desc")
     List<Figure> findAllByOrderByReleaseDesc();
 }
