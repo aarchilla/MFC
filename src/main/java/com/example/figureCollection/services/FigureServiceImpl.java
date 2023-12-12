@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.figureCollection.dao.IFigureDao;
 import com.example.figureCollection.model.entity.Figure;
@@ -32,6 +33,18 @@ public class FigureServiceImpl implements IFigureService {
 	@Override
 	public List<Figure> findAllOrderByRelease() {
 		return figureDao.findAllByOrderByReleaseDesc();
+	}
+
+	@Override
+	@Transactional
+	public void save(Figure figure) {
+		figureDao.save(figure);
+
+	}
+
+	@Override
+	public Figure saveAndFlush(Figure figure) {
+		return figureDao.saveAndFlush(figure);
 	}
 
 	

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: head}"></head>
+<body>
+	<header th:replace="~{layout/layout :: header}"></header>
+	<div class="container">
+        <div class="card w-75 m-auto mt-3">
+            <div class="card-header text-center pt-3 pb-3">
+                <h2 th:text="${titulo}"></h2>
+            </div>
+            <div class="card-body pt-4 pb-4 ">
+                <form th:action="@{/figures/create}" th:object="${figure}"
+					method="post" enctype="multipart/form-data">
+                    <div class="form-group row p-3">
+						<label for="nombre" class="col-sm-2 col-form-label"
+							th:text="'Nombre'"></label>
+						<div class="col-sm-6">
+							<input name="name"
+								class="form-control" />
+						</div>
+					</div>
+                    <div class="form-group row p-3">
+						<label for="company" class="col-sm-2 col-form-label"
+							th:text="'Company'"></label>
+                        <div class="col-sm-6">
+                            <select name="company" class="form-control" >
+                                <option>Seleccione una de las opciones</option>
+                                <option th:each=" company : ${listCompany}" th:value="${company.id}" th:text="${company.name}"></option>
+                            </select>
+                        </div>
+					</div>
+                    <div class="form-group row p-3">
+						<label for="nombre" class="col-sm-2 col-form-label"
+							th:text="'Character'"></label>
+                        <div class="col-sm-6">
+                            <select class="form-control" name="characterList">
+                                <option>Seleccione una de las opciones</option>
+                                <option th:each=" character : ${listCharacter}" th:value="${character.id}" th:text="${character.name}"></option>
+                            </select>
+                        </div>
+					</div>
+                    <div class="form-group row p-3">
+						<label for="height" class="col-sm-2 col-form-label"
+							th:text="'Height'"></label>
+						<div class="col-sm-6">
+							<input name="height"
+								class="form-control" />
+						</div>
+					</div>
+                    <div class="form-group row p-3">
+						<label for="scale" class="col-sm-2 col-form-label"
+							th:text="'Scale'"></label>
+						<div class="col-sm-6">
+							<input name="scale"
+								class="form-control" />
+						</div>
+					</div>
+                    <div class="form-group row p-3">
+                        <label class="form-label col-sm-2" for="customFile">Imágenes</label>
+                        <div class="col-sm-6">
+                            <input type="file" name="files[]" class="form-control" id="customFile" multiple/>
+                        </div>
+                    </div>
+                    <div class="form-group row p-3">
+						<div class="col-sm-6">
+							<input type="submit" th:value="Guardar"
+								class="btn btn-secondary float-end" />
+						</div>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <header th:replace="~{layout/layout :: footer}"></header>
+    </body>
+    </html>

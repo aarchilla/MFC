@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: head}"></head>
+<body>
+	<header th:replace="~{layout/layout :: header}"></header>
+	<div class="container">
+        <div class="card w-75 m-auto mt-3">
+            <div class="card-header text-center pt-3 pb-3">
+                <h2 th:text="${titulo}"></h2>
+            </div>
+            <div class="card-body pt-4 pb-4 ">
+                <form th:action="@{/company/create}" th:object="${company}"
+					method="post" enctype="multipart/form-data">
+                    <div class="form-group row p-3">
+						<label for="nombre" class="col-sm-2 col-form-label"
+							th:text="'Nombre'"></label>
+						<div class="col-sm-6">
+							<input name="name"
+								class="form-control" />
+						</div>
+					</div>
+                    <div class="form-group row p-3">
+                        <label class="form-label col-sm-2" for="customFile">Imagen</label>
+                        <div class="col-sm-6">
+                            <input type="file" name="files" class="form-control" id="customFile"/>
+                        </div>
+                    </div>
+                    <div class="form-group row p-3">
+						<div class="col-sm-6">
+							<input type="submit" th:value="Guardar"
+								class="btn btn-secondary float-end" />
+						</div>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <header th:replace="~{layout/layout :: footer}"></header>
+    </body>
+    </html>

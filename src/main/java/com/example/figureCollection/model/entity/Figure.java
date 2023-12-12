@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -19,9 +17,8 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
@@ -74,10 +71,13 @@ public class Figure implements Serializable{
             	@JoinColumn(name="user_id", referencedColumnName="id"))
 	List<User> listFigureLiked;
 
-	@NotNull
 	@Column(name = "create_at")
-	@CreatedDate
 	private Date createAt;
+
+	@PrePersist
+	public void prePersist() {
+		createAt = new Date();
+	}
 
 	public Long getId() {
 		return id;
@@ -158,5 +158,13 @@ public class Figure implements Serializable{
 	public void setListFigureLiked(List<User> listFigureLiked) {
 		this.listFigureLiked = listFigureLiked;
 	}
-	
+
+	public Date getCreateAt() {
+		return createAt;
+	}
+
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+
 }
