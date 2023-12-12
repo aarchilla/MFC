@@ -2,7 +2,6 @@ package com.example.figureCollection.model.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

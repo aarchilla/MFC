@@ -17,3 +17,8 @@
  .max-width-login {
    max-width: 400px;
  }
+
+ .img-figure {
+   height: 250px;
+   max-width: 180px;
+ }

@@ -31,14 +31,14 @@ public class SpringSecurityConfig  {
 
 	@Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		//http.authorizeHttpRequests().anyRequest().permitAll();
-		http.authorizeHttpRequests((authorize) -> authorize
-			.requestMatchers("/", "/css/**", "/js/**", "/images/**","/login").permitAll()
-			.anyRequest().authenticated()
-			)
-		.formLogin()
-		.loginPage("/login")
-		.permitAll();
+        //http.authorizeHttpRequests().anyRequest().permitAll();
+        http.authorizeHttpRequests((authorize) -> authorize
+                        .requestMatchers("/", "/css/**", "/js/**", "/images/**", "/login").permitAll()
+                        .anyRequest().authenticated()
+        )
+                .formLogin(login -> login
+                        .loginPage("/login")
+                        .permitAll());
 		
 		return http.build();
     }

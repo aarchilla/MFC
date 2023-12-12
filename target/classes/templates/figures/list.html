@@ -4,10 +4,15 @@
 <body>
 	<header th:replace="~{layout/layout :: header}"></header>
 	<div class="container">
-		
+        <div class="row">
+            <div class="col-2" th:each=" figure: ${figures}">
+                <div class="company-container">
+                    <img th:src="@{${path + figure.id + '/' + figure.images[0].link}}" class="img-fluid img-figure">
+                    <span th:text="${figure.name}"></span>
+                </div>
+            </div>
+        </div>
 	</div>
-	
-
 </div>
 <header th:replace="~{layout/layout :: footer}"></header>
 </body>
