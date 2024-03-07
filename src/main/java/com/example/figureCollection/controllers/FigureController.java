@@ -56,11 +56,12 @@ public class FigureController {
 	@GetMapping(path="/figures/{id}")
 	public String figure(@PathVariable Long id, Model model) {
 		Figure figure = figureService.findById(id);
+		model.addAttribute("path", PATH_IMG);
 		model.addAttribute("figure", figure);
 		return "figures/figure";
 	}
 
-	@GetMapping(path="/figures")
+	@GetMapping(path={"/figures", "/", ""})
 	public String listFigures(Model model) {
 		List<Figure> figures = figureService.findAllOrderByRelease();
 		model.addAttribute("path", PATH_IMG);

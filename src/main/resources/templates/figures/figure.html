@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="row">
 		<div class="col-6">
-			<img class="img-thumbnail img-fluid" src="https://img.amiami.com/images/product/review/183/FIGURE-041414_01.jpg" th:alt="#{figure.name}">
+			<img class="img-thumbnail img-fluid" th:src="@{${path + figure.id + '/' + figure.images[0].link}}" th:alt="#{figure.name}">
 		</div>
 		<div class="col-6">
 			<dl class="row">

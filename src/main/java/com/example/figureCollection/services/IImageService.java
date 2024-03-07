@@ -4,5 +4,5 @@ import com.example.figureCollection.model.entity.Image;
 
 public interface IImageService {
 
-    	public void save(Image image);
+    public void save(Image image);
 }
