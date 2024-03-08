@@ -21,20 +21,21 @@
 						<a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Figures List</a>
+						<a class="nav-link" th:href="@{'/figures'}">Figures List</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Goods List</a>
+						<a class="nav-link" th:href="@{'/goods'}">Goods List</a>
 					</li>
-					<li class="nav-item dropdown">
+					<li sec:authorize="hasAuthority('ADMIN')" class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
 						<div class="dropdown-menu" aria-labelledby="dropdownId">
-							<a class="dropdown-item" href="#">Crear figura</a>
-							<a class="dropdown-item" href="#">Crear Good</a>
+							<a class="dropdown-item" th:href="@{'/figures/create'}">Crear figura</a>
+							<a class="dropdown-item" th:href="@{'/goods/create'}">Crear Good</a>
+							<a class="dropdown-item" th:href="@{'/company/create'}">Crear Company</a>
 						</div>
 					</li>
 				</ul>
-				<div class="d-flex my-2 my-lg-0">
+				<div sec:authorize="isAuthenticated()" class="d-flex my-2 my-lg-0">
 					<div class="nav-item dropdown">
 						<a class="nav-link" href="#" data-bs-toggle="dropdown">
 							<img src="https://static.myfigurecollection.net/upload/items/0/464669-5e4cd.jpg"class="max-hw-avatar rounded-circle">
@@ -57,6 +58,7 @@
 		<div class="container">
 			<div class="col-md-4 d-flex align-items-center">
 				<span class="mb-3 mb-md-0 text-muted">© 2022 MyFigureCollection</span>
+				<span sec:authorize="isAuthenticated()" sec:authentication="principal.authorities"></span>
 			</div>
 		
 			<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
@@ -68,6 +70,7 @@
 			<script th:src="@{/js/bootstrap.min.js}"></script>
 			<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
 			<script th:src="@{/js/main.js}"></script>
+			<script src="https://kit.fontawesome.com/adac076d85.js" crossorigin="anonymous"></script>
 		</div>
 	</footer>
 </body>
